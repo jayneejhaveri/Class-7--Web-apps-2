@@ -6,9 +6,12 @@
 
 <h3>Contacts</h3>
 
+<%= contacts = Contact.where{( "company_id" => @company["id"])} %>
+
 <ul>
-  <li>Michael Scott</li>
-  <li>Dwight Schrute</li>
+ <% for contact in contacts %>
+  <li> <% contact["first_name" %></li>
+  <li><% contact["last_name" %></li>
 </ul>
 
 <p>
@@ -16,5 +19,5 @@
 </p>
 
 <p>
-  <a href="/companies">Back to All Companies</a>
+  <a href="/contacts/new?company_id=<%= @company["id"] %>">Back to All Companies</a>
 </p>
